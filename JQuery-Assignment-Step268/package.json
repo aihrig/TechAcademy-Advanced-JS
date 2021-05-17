@@ -1,0 +1,16 @@
+{
+  "name": "jquery-assignment-step268",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jQueryChallenge.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server -c bs-config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fallback": "^1.0.1",
+    "log": "^6.0.0"
+  }
+}

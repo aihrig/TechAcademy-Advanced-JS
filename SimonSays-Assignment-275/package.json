@@ -1,0 +1,13 @@
+{
+  "name": "simonsays-assignment-275",
+  "version": "1.0.0",
+  "description": "",
+  "main": "theGameRules.js",
+  "scripts": {
+    "dev": "lite-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
