@@ -2,12 +2,10 @@
 
 $(function() {
     var colors = $('#colors li');
-    var mainColor = $('#main');
     var start = $('#start');
     var gameState = 'waiting';
     var gameSequence = new Array();
     var level = 1;
-    var t;
     var flashNo;
     var clickedNo;
     var setupLightSequence = function() {
@@ -26,6 +24,7 @@ $(function() {
     
     var showLightSequence = function() {
         lightOff();
+
         if (flashNo < level) {
             var on = setTimeout(function() {
                 var off = setTimeout(() => {
@@ -46,8 +45,7 @@ $(function() {
     colors.click(function() {
         if (gameState == 'playing') {
             var selectedSquare = $(this).index();
-            var selectedColor = $(this).css('background-colors');
-
+            
             $(this).fadeOut(250);
             $(this).fadeIn(250);
 
@@ -84,15 +82,14 @@ $(function() {
         clickedNo = 0;
         $(this).text('Simon says...');
         $('body').removeClass('game-over');
-        
-        $('li').animate({
-            opacity: 'toggle'
-        });
 
+        $('#colors').animate({
+            opacity: 1
+        });
+        
         setTimeout(() => {
             setupLightSequence();
         }, 500);
     };
     start.click(init);
-
 });

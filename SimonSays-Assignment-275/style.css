@@ -7,6 +7,7 @@ body {
     float: left;
     overflow: hidden;
     width: 280px;
+    opacity: 0;
 }
 
 #colors li {
@@ -22,7 +23,6 @@ body {
     width: 100px;
     margin-right: 20px;
     margin-bottom: 20px;
-    display: none;
 }
 
 #colors li.green { background-color:lawngreen; }
