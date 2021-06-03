@@ -15,7 +15,10 @@ class Model {
 
     addTodo(todoText) {
         const todo = {
-            id: this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 1,
+            id:
+                this.todos.length > 0
+                    ? this.todos[this.todos.length - 1].id + 1
+                    : 1,
             text: todoText,
             complete: false
         };
@@ -25,13 +28,14 @@ class Model {
         this._commit(this.todos);
     }
 
-    // Map through all todos, and replace the text of the todo with 
+    // Map through all todos, and replace the text of the todo with
     // specified id.
     editTodo(id, updatedText) {
-        this.todos = this.todos.map((todo) => {
-            todo.id === id ? {id: todo.id, text: updatedText, complete: todo.complete} : todo;
-        });
-
+        this.todos = this.todos.map((todo) =>
+            todo.id === id
+                ? { id: todo.id, text: updatedText, complete: todo.complete }
+                : todo
+        );
         this._commit(this.todos);
     }
 
@@ -45,14 +49,15 @@ class Model {
 
     // Flip the complete boolean on the specified to
     toggleTodo(id) {
-        this.todos = this.todos.map((todo) => 
-            todo.id === id ? {id: todo.id, text: todo.text, complete: !todo.complete} : todo
+        this.todos = this.todos.map((todo) =>
+            todo.id === id
+                ? { id: todo.id, text: todo.text, complete: !todo.complete }
+                : todo
         );
 
         // this.onTodoListChanged(this.todos);
         this._commit(this.todos);
     }
-
 }
 
 class View {
@@ -124,7 +129,7 @@ class View {
             this.todoList.append(p);
         } else {
             // Create todo item nodes for todo in state
-            todos.forEach(todo => {
+            todos.forEach((todo) => {
                 const li = this.createElement('li');
                 li.id = todo.id;
 
@@ -190,7 +195,7 @@ class View {
 
     //Send the completed value to the model
     bindEditTodo(handler) {
-        this.todoList.addEventListener('focusout', event => {
+        this.todoList.addEventListener('focusout', (event) => {
             if (this._temporaryTodoText) {
                 const id = parseInt(event.target.parentElement.id);
 
@@ -224,29 +229,27 @@ class Controller {
 
         // Display initial todos
         this.onTodoListChanged(this.model.todos);
-
     }
 
     onTodoListChanged = (todos) => {
         this.view.displayTodos(todos);
-    }
+    };
 
     handleAddTodo = (todoText) => {
         this.model.addTodo(todoText);
-    }
+    };
 
     handleEditTodo = (id, todoText) => {
         this.model.editTodo(id, todoText);
-    }
+    };
 
     handleDeleteTodo = (id) => {
         this.model.deleteTodo(id);
-    }
+    };
 
     handleToggleTodo = (id) => {
         this.model.toggleTodo(id);
-    }
-
+    };
 }
 
 const app = new Controller(new Model(), new View());
