@@ -8,10 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   userScore = 0;
   compScore = 0;
-  userSelected: string;
-  compSelected: string;
-  action: string;
-  status: string;
+  userSelected!: string;
+  compSelected!: string;
+  action!: string;
+  status!: string;
   compWeapons = ['rock', 'paper', 'scissors'];
 
   userPick(userWeapon: string): void {
@@ -33,7 +33,7 @@ export class AppComponent {
     }, 1500);
   }
 
-  win(user, comp) {
+  win(user: string, comp: string) {
     this.userScore++;
     this.userSelected = user;
     this.compSelected = comp;
@@ -42,7 +42,7 @@ export class AppComponent {
     this.clearField();
   }
 
-  lose(user, comp) {
+  lose(user: string, comp: string) {
     this.compScore++;
     this.userSelected = user;
     this.compSelected = comp;
@@ -51,7 +51,7 @@ export class AppComponent {
     this.clearField();
   }
 
-  draw(user, comp) {
+  draw(user: string, comp: string) {
     this.userSelected = user;
     this.compSelected = comp;
     this.action = 'and';
