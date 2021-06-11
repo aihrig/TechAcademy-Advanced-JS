@@ -1,0 +1,16 @@
+{
+  "name": "rps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/cli": "^8.3.7",
+    "jasmine-core": "^3.4.0",
+    "karma-jasmine-html-reporter": "^1.6.0"
+  }
+}
