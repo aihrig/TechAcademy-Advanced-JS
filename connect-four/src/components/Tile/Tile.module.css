@@ -1,0 +1,30 @@
+.tile {
+    width: 75px;
+    height: 75px;
+    border: solid 10px #444043;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.chip {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    background-color: gray;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.red {
+    background-color: #ff010b;
+}
+
+.black {
+    background-color: black;
+}
+
+.orange {
+    background-color: orange;
+}
