@@ -4,13 +4,13 @@ const rootPath = path.normalize(__dirname + '../');
 
 module.exports = {
     development: {
-        db: 'mongodb://db01.studio.radfx.com/multivision',
+        db: process.env.TODO_DB,
         rootPath: rootPath,
-        port: process.env.PORT || 3030
+        port: 3030
     },
     production: {
-        db: 'mongodb+srv://[PROD_SERVER]',
+        db: process.env.TODO_DB,
         rootPath: rootPath,
-        port: process.env.PORT || 80
+        port: 80
     }
 };
