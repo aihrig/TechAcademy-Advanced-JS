@@ -10,19 +10,19 @@ import { ITodo } from './todo.model';
   providedIn: 'root',
 })
 export class TodoService {
-  private todoApiUrl = 'http://localhost:3030/api/todos';
+  private todoApiUri = 'http://localhost:3030/api/todos';
 
   constructor(private http: HttpClient) {}
 
   getTodos(): Observable<ITodo[]> {
     return this.http
-      .get<ITodo[]>(this.todoApiUrl)
+      .get<ITodo[]>(this.todoApiUri)
       .pipe(tap((data) => console.log('All', JSON.stringify(data))));
   }
 
   createTodo(todo: ITodo): Observable<any> {
     return this.http
-      .post(this.todoApiUrl, { description: todo.description })
+      .post(this.todoApiUri, { description: todo.description })
       .pipe(tap((data) => console.log('New todo: ', JSON.stringify(data))));
   }
 
@@ -30,7 +30,7 @@ export class TodoService {
     console.log('---> toggleTodoDone() called');
     const done = !todo.done;
     return this.http
-      .put<any>(`${this.todoApiUrl}/${todo._id}`, { done: done })
+      .put<any>(`${this.todoApiUri}/${todo._id}`, { done: done })
       .pipe(
         tap((data) => console.log('Todo to update: ', JSON.stringify(data)))
       );
@@ -39,7 +39,7 @@ export class TodoService {
   deleteTodo(todo: ITodo): Observable<any> {
     console.log('---> deleteTodo() called');
     return this.http
-      .delete<any>(`${this.todoApiUrl}/${todo._id}`)
+      .delete<any>(`${this.todoApiUri}/${todo._id}`)
       .pipe(
         tap((data) => console.log('Todo to delete: ', JSON.stringify(data)))
       );
